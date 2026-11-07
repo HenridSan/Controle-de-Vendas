@@ -49,3 +49,30 @@ def vender_um(produto):
         return "Acabou o estoque!"
     produto["vendidos"] = produto["vendidos"] + 1
     return f"Venda realizada! Restam {restantes(produto)}"
+
+
+def converter_numero(texto):
+    return float(texto.replace(",", "."))
+
+
+def criar_produto(tipo, nome, receita, gastos, quantidade, preco):
+    nome = nome.strip()
+    if nome == "":
+        raise ValueError("Digite o nome do produto.")
+    if tipo not in("comida", "pronto"):
+        raise ValueError("Este produto nao existe.")
+    if quantidade <= 0:
+        raise ValueError("Digite uma quantidade maior que zero.")
+    if preco <= 0:
+        raise ValueError("Digite um valor maior que zero.")
+    if tipo == "pronto":
+        receita = ""
+    return {
+        "tipo": tipo,
+        "nome": nome,
+        "receita": receita,
+        "gastos": gastos,
+        "quantidade": quantidade,
+        "preco": preco,
+        "vendidos": 0,
+    }
