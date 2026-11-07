@@ -44,7 +44,7 @@ def test_custo_por_unidade():
     assert custo_por_unidade(bolo) == pytest.approx(1.7)
 
 
-def custo_por_unidade_zero():
+def test_custo_por_unidade_zero():
     bolo = novo_bolo()
     bolo["quantidade"] = 0
     assert custo_por_unidade(bolo) == 0
@@ -55,7 +55,7 @@ def test_lucro_por_unidade():
     assert lucro_por_unidade(bolo) == pytest.approx(6.3)
 
 
-def vender_diminui_estoque():
+def test_vender_diminui_estoque():
     bolo = novo_bolo()
     mensagem = vender_um(bolo)
     assert restantes(bolo) == 9
@@ -76,14 +76,14 @@ def test_lucro_real_comeca_negativo():
     assert lucro_real(novo_bolo()) == -17.0
 
 
-def lucro_real_apos_vender_tres():
+def test_lucro_real_apos_vender_tres():
     bolo = novo_bolo()
     for i in range(3):
         vender_um(bolo)
     assert lucro_real(bolo) == 7.0
 
 
-def lucro_real_apos_venda_sete_produtos():
+def test_lucro_real_apos_venda_sete_produtos():
     fone = novo_produto()
     custo_total(fone) == 235.0
     for i in range(6):
