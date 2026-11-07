@@ -3,4 +3,5 @@ __pycache__/
 .pytest_cache/
 .buildozer/
 bin/
-produto.json
+produtos.json
+.vscode/
